@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Analytics — стартовый экран</title>
+
+  <!-- ─────────────────────────  СТИЛИ  ────────────────────────── -->
+  <style>
+    /* Общий фон и центровка блока */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;                 /* выравниваем по центру экрана */
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    /* Карточка-«контейнер» с заголовком и кнопками */
+    .container {
+      text-align: center;
+      padding: 2rem;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    /* Группа кнопок расположена в строчку */
+    .buttons {
+      display: flex;
+      gap: 1rem;                     /* расстояние между кнопками */
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+
+    /* Оформление самих кнопок */
+    button {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      background: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+      min-width: 140px;              /* чтобы обе были одинаковой ширины */
+    }
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+
+<body>
+  <!-- ─────────────────────────  КОНТЕНТ  ───────────────────────── -->
+  <div class="container">
+    <h1>Dynamic Analytics</h1>
+
+    <!-- две независимые формы, каждая делает GET куда нужно -->
+    <div class="buttons">
+
+      <!-- КНОПКА: вывод табличных метрик  -->
+      <!--                ↳ /metrics уже считает и рисует таблицу -->
+      <form action="/metrics" method="get">
+        <button type="submit">Create Table</button>
+      </form>
+
+      <!-- КНОПКА: переход к графикам  -->
+      <!--                ↳ /index_front.html (можно и /​dashboard) -->
+      <form action="/index_front.html" method="get">
+        <button type="submit">Create Graphs</button>
+      </form>
+
+    </div>
+  </div>
+</body>
+</html>

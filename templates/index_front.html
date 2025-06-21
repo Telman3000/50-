@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Analytics Dashboard</title>
+  <link rel="stylesheet" href="\static\style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div id="main-container">
+        <h2>Analytics system</h2>
+        <div id="content-wrapper">
+            <div id="options-part">
+                <ul id="graph-options">
+                    <li class="main-option">
+                        <button id="groups-button">
+                            <p>Группы</p>
+                            <span class="arrow">▼</span>
+                        </button>
+                        <ul id="what-to-display-menu">
+                            <li class="what-to-display-option">
+                                <button class="what-to-display-button active" data-group="CF">
+                                    <p>CF</p>
+                                </button>
+                            </li>
+                            <li class="what-to-display-option">
+                                <button class="what-to-display-button active" data-group="Fixed">
+                                    <p>Fixed</p>
+                                </button>
+                            </li>
+                            <li class="what-to-display-option">
+                                <button class="what-to-display-button active" data-group="KB">
+                                    <p>KB</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="statistics-part">
+                <div class="chart-container">
+                    <div class="chart" id="div-chart-1">
+                        <h3>Group Size</h3>
+                        <canvas id="chart-1" width="400" height="400"></canvas>
+                    </div>
+                    <div class="chart" id="div-chart-4">
+                        <h3>Mastery Rate</h3>
+                        <canvas id="chart-4" width="400" height="400"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart" id="div-chart-2">
+                        <h3>Retention</h3>
+                        <canvas id="chart-2" width="400" height="400"></canvas>
+                    </div>
+                    <div class="chart" id="div-chart-3">
+                        <h3>Engagement</h3>
+                        <canvas id="chart-3" width="400" height="400"></canvas>
+                    </div>
+                    <div class="chart" id="div-chart-5">
+                        <h3>Mastery Trajectory</h3>
+                        <canvas id="chart-5" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="\static\script.js"></script>
+</body>
+</html>
