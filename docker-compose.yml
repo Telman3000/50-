@@ -1,27 +1,23 @@
-version: '3.8'
-
 services:
-  ## ────── MongoDB ─────────────────────────────────────────
   mongodb:
-    image: mongo:latest               # официальный образ MongoDB
-    container_name: namaz_mongo       # читаемое имя
-    restart: unless-stopped           # авто-перезапуск при падениях
+    image: mongo:latest
+    container_name: analytics_mongo
+    restart: unless-stopped
     ports:
-      - "27017:27017"                 # маппим порт 27017
+      - "27017:27017"
     volumes:
-      - ./data/db:/data/db            # данные вне контейнера
+      - ./data/db:/data/db
 
-  ## ────── FastAPI приложение ─────────────────────────────
   app:
-    build: .                          # Dockerfile в текущей папке
-    container_name: namaz_app         # читаемое имя
-    restart: unless-stopped           # авто-перезапуск
+    build: .
+    container_name: analytics_app
+    restart: unless-stopped
     ports:
-      - "8080:8000"                   # порт uvicorn
+      - "8080:8080"               # обязательно 8080:8080
     depends_on:
-      - mongodb                       # ждём MongoDB
+      - mongodb
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/namaz_db  # подключаемся к сервису mongodb
-      - PORT=8000
+      - MONGO_URI=mongodb://mongodb:27017/namaz_db
+      - PORT=8080
     volumes:
-      - .:/app                        # монтируем код внутрь контейнера
+      - .:/app
