@@ -17,7 +17,7 @@ services:
     container_name: namaz_app         # читаемое имя
     restart: unless-stopped           # авто-перезапуск
     ports:
-      - "8000:8000"                   # порт uvicorn
+      - "8080:8000"                   # порт uvicorn
     depends_on:
       - mongodb                       # ждём MongoDB
     environment:
